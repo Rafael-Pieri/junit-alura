@@ -17,10 +17,10 @@ public class BidFilterTest {
 
         BidFilter bidFilter = new BidFilter();
         
-        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, 2000), 
-										                  new Bid(john, 1000), 
-										                  new Bid(john, 3000), 
-										                  new Bid(john, 800)));
+        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, Double.valueOf(2000)), 
+										                  new Bid(john, Double.valueOf(1000)), 
+										                  new Bid(john, Double.valueOf(3000)), 
+										                  new Bid(john, Double.valueOf(800))));
 
         assertEquals(1, result.size());
         assertEquals(2000, result.get(0).getValue(), 0.00001);
@@ -32,25 +32,25 @@ public class BidFilterTest {
 
         BidFilter bidFilter = new BidFilter();
         
-        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, 600), 
-										                  new Bid(john, 500), 
-										                  new Bid(john, 700), 
-										                  new Bid(john, 800)));
+        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, Double.valueOf(600)), 
+										                  new Bid(john, Double.valueOf(500)), 
+										                  new Bid(john, Double.valueOf(700)), 
+										                  new Bid(john, Double.valueOf(800))));
 
         assertEquals(1, result.size());
         assertEquals(600, result.get(0).getValue(), 0.00001);
     }
     
     @Test
-    public void shouldSelectBidsLargestThan5000() {
+    public void shouldSelectBidsHighestThan5000() {
         User john = new User("John");
 
         BidFilter bidFilter = new BidFilter();
         
-        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, 4000), 
-										                  new Bid(john, 5000), 
-										                  new Bid(john, 6000), 
-										                  new Bid(john, 3500)));
+        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, Double.valueOf(4000)), 
+										                  new Bid(john, Double.valueOf(5000)), 
+										                  new Bid(john, Double.valueOf(6000)), 
+										                  new Bid(john, Double.valueOf(3500))));
 
         assertEquals(1, result.size());
         assertEquals(6000, result.get(0).getValue(), 0.00001);
@@ -62,10 +62,10 @@ public class BidFilterTest {
 
         BidFilter bidFilter = new BidFilter();
         
-        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, 100), 
-											              new Bid(john, 200),
-											              new Bid(john, 300), 
-											              new Bid(john, 400)));
+        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, Double.valueOf(100)), 
+											              new Bid(john, Double.valueOf(200)),
+											              new Bid(john, Double.valueOf(300)), 
+											              new Bid(john, Double.valueOf(400))));
 
         assertEquals(0, result.size());
     }
@@ -76,9 +76,9 @@ public class BidFilterTest {
 
         BidFilter bidFilter = new BidFilter();
         
-        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, 3000),
-										        		  new Bid(john, 4000), 
-										        		  new Bid(john, 5000)));
+        List<Bid> result = bidFilter.filter(Arrays.asList(new Bid(john, Double.valueOf(3000)),
+										        		  new Bid(john, Double.valueOf(4000)), 
+										        		  new Bid(john, Double.valueOf(5000))));
 
         assertEquals(0, result.size());
     }

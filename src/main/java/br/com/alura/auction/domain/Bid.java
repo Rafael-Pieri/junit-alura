@@ -3,9 +3,9 @@ package br.com.alura.auction.domain;
 public class Bid {
 
 	private User user;
-	private double value;
+	private Double value;
 
-	public Bid(User user, double value) {
+	public Bid(User user, Double value) {
 		if (value <= 0)
 			throw new IllegalArgumentException();
 		this.user = user;
@@ -16,7 +16,7 @@ public class Bid {
 		return user;
 	}
 
-	public double getValue() {
+	public Double getValue() {
 		return value;
 	}
 
@@ -25,9 +25,7 @@ public class Bid {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(value);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((value == null) ? 0 : value.hashCode());
 		return result;
 	}
 
@@ -45,7 +43,10 @@ public class Bid {
 				return false;
 		} else if (!user.equals(other.user))
 			return false;
-		if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value))
+		if (value == null) {
+			if (other.value != null)
+				return false;
+		} else if (!value.equals(other.value))
 			return false;
 		return true;
 	}

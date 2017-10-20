@@ -12,7 +12,7 @@ public class PalindromeTest {
 		
 		Palindrome phrase = new Palindrome();
 		
-		boolean result = phrase.isPalindrome("Socorram-me subi no onibus em Marrocos");
+		boolean result = phrase.isPalindrome("God saw I was dog");
 		
 		assertTrue(result);
 	}

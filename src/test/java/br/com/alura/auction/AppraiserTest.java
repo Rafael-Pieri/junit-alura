@@ -61,7 +61,7 @@ public class AppraiserTest {
 		
 		appraiser.evaluate(auction);
 		
-		assertThat(appraiser.getLargestBid(), equalTo(400.0));
+		assertThat(appraiser.getHighestBid(), equalTo(400.0));
 		assertThat(appraiser.getLowestBid(), equalTo(250.0));
 	}
 	
@@ -88,11 +88,11 @@ public class AppraiserTest {
 		
 		appraiser.evaluate(auction);
 		
-		assertThat(appraiser.getLowestBid(), equalTo(appraiser.getLargestBid()));
+		assertThat(appraiser.getLowestBid(), equalTo(appraiser.getHighestBid()));
 	}
 	
 	@Test
-    public void shouldFindTheThreeLargestBids() {
+    public void shouldFindTheThreeHighestBids() {
         Auction auction = new CreaterOfBid().to("New Playstation 3")
         									.bid(john, 100.0)
         									.bid(mary, 200.0)
@@ -102,18 +102,18 @@ public class AppraiserTest {
 
         appraiser.evaluate(auction);
 
-        List<Bid> largestBids = appraiser.getThreeLargest();
+        List<Bid> highestBids = appraiser.getThreeHighest();
         
-        assertEquals(3, largestBids.size());
+        assertEquals(3, highestBids.size());
 
-		assertThat(largestBids, hasItems(new Bid(mary, 400.0), 
+		assertThat(highestBids, hasItems(new Bid(mary, 400.0), 
 						             	 new Bid(john, 300.0),
 						             	 new Bid(mary, 200.0)
         ));    
     }
 	
 	@Test
-	public void shouldFindOnlyTheTwoLargestBids(){
+	public void shouldFindOnlyTheTwoHighestBids(){
 		
 		Auction auction = new CreaterOfBid().to("New Playstation 3")
 					        				.bid(john,  100.0)
@@ -122,11 +122,11 @@ public class AppraiserTest {
 		
 		appraiser.evaluate(auction);
 		
-		List<Bid> largestBids = appraiser.getThreeLargest();
+		List<Bid> highestBids = appraiser.getThreeHighest();
 		
-		assertEquals(2, largestBids.size());
+		assertEquals(2, highestBids.size());
 
-		assertThat(largestBids, hasItems(new Bid(john,  100.0), 
+		assertThat(highestBids, hasItems(new Bid(john,  100.0), 
 						             	 new Bid(mary, 200.0)
 		));
 	}
@@ -142,11 +142,11 @@ public class AppraiserTest {
 	
 	@Test(expected=IllegalArgumentException.class)
     public void shouldRefuseBidsWithAZeroValue() {
-        new Bid(new User("John Malcovich"), 0);
+        new Bid(new User("John Malcovich"), Double.valueOf(0));
     }
 
     @Test(expected=IllegalArgumentException.class)
     public void shouldRefuseBidsWithNegativeValues() {
-        new Bid(new User("John Malcovich"), -10);
+        new Bid(new User("John Malcovich"), Double.valueOf(-10));
     }
 }

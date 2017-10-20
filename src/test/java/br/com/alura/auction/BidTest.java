@@ -21,7 +21,7 @@ public class BidTest {
 
 		assertEquals(0, auction.getBids().size(), 0.00001);
 
-		Bid bid = new Bid(new User("Steve Jobs"), 2000);
+		Bid bid = new Bid(new User("Steve Jobs"), Double.valueOf(2000));
 		auction.propose(bid);
 
 		assertThat(auction.getBids().size(), equalTo(1));
