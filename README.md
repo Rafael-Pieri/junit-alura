@@ -1,7 +1,8 @@
-## Alura Online Courses - Tests: TDD using Java
+## Tests: TDD using Java
 
 ### Overview
-Repository with some examples of how to implement unit tests with jUnit using the TDD methodology.
+This repository contains some examples of how to implement unit tests using jUnit.  
+All tests were developed applying the TDD (Test Driven Development) methodology.
 
 #### jUnit
 JUnit is an open-source framework, similar to Java software testing, created by Erich Gamma and Kent Beck, 
