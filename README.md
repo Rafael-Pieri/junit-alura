@@ -1,4 +1,4 @@
-## Alura Online Courses - Tests: TDD using Java
+## Automatic testing: TDD using Java
 
 ### Overview
 This repository contains some examples of how to implement unit tests using jUnit.  
