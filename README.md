@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/rafael-pieri/junit-alura.svg?branch=master)](https://travis-ci.com/rafael-pieri/junit-alura)
+
 ## Automatic testing: TDD using Java
 
 ### Overview
